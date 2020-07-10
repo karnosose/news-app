@@ -4,10 +4,40 @@ import uuid from 'react-uuid';
 import {styles} from './Header.style';
 import { withStyles } from '@material-ui/styles';
 
-const categories = ['category 1', 'category 2', 'category 3']
+// const categories = ['category 1', 'category 2', 'category 3']
 
 class Header extends Component {
+  state = {
+    categories: []
+  }
+  async componentDidMount(){
+    const categories = await this.getCategories();   
+    this.setState({
+      categories: categories,
+    })
+  }
+
+  async getCategories () {
+    const categories = await fetch('https://newsapi.org/v2/sources?apiKey=e82f70b988f04976bc0f0db2f241c521')
+    .then(res => res.json())
+    .then(res => {
+      let categories = [];
+      Object.keys(res.sources).forEach(source => {
+        const cat = res.sources[source].category;
+        if(!categories.includes(cat)){
+          categories = [...categories, cat]
+        }
+      });
+      console.log(categories)
+      return categories;
+    })
+   
+
+    return categories;
+  }
+
   render() {
+    // console.log(this.state)
     const {classes} = this.props
     return (
       <div className={classes.header}>
@@ -15,7 +45,8 @@ class Header extends Component {
           <h2>News App</h2>
         </div>
         <div className={classes.categories}>
-          {categories.map(category => (
+
+          {(this.state.categories).map(category => (
             <div key={uuid()} className={classes.category}>
               {category}
             </div>
