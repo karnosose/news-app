@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import uuid from 'react-uuid';
+
 
 import {styles} from './Header.style';
 import { withStyles } from '@material-ui/styles';
-
-// const categories = ['category 1', 'category 2', 'category 3']
 
 class Header extends Component {
   state = {
@@ -28,7 +28,6 @@ class Header extends Component {
           categories = [...categories, cat]
         }
       });
-      console.log(categories)
       return categories;
     })
    
@@ -37,19 +36,23 @@ class Header extends Component {
   }
 
   render() {
-    // console.log(this.state)
     const {classes} = this.props
     return (
       <div className={classes.header}>
         <div className={classes.appTitle}>
-          <h2>News App</h2>
+          <Link to="/">
+            <h2>News App</h2>
+          </Link>
         </div>
         <div className={classes.categories}>
-
           {(this.state.categories).map(category => (
-            <div key={uuid()} className={classes.category}>
+            <Link 
+              to={category}
+              key={uuid()} 
+              className={classes.category} 
+            >
               {category}
-            </div>
+            </Link>
           ))}
         </div>
         <div className={classes.search}>
