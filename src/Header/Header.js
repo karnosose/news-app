@@ -18,21 +18,37 @@ class Header extends Component {
   }
 
   async getCategories () {
-    const categories = await fetch('https://newsapi.org/v2/sources?apiKey=e82f70b988f04976bc0f0db2f241c521')
+    // const categories = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=e82f70b988f04976bc0f0db2f241c521')
+    // .then(res => res.json())
+    // .then(res => {
+    //   let categories = [];
+    //   Object.keys(res.articles).forEach(article => {
+    //     const cat = res.article[source].name;
+    //     if(!categories.includes(cat)){
+    //       categories = [...categories, cat]
+    //     }
+    //   });
+    //   const newCategories = categories.splice(116,5)
+    //   return newCategories;
+    // })
+
+    const categories = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=e82f70b988f04976bc0f0db2f241c521')
     .then(res => res.json())
     .then(res => {
       let categories = [];
-      Object.keys(res.sources).forEach(source => {
-        const cat = res.sources[source].category;
-        if(!categories.includes(cat)){
-          categories = [...categories, cat]
+      res.articles.map(article => {
+        if(!categories.includes(article.source.name)){
+          categories = [...categories, article.source.name]
         }
-      });
-      return categories;
+        return categories;
+      })
+      const newCategories = categories.splice(0,5)
+      console.log(newCategories)
+      return newCategories;
     })
    
-
-    return categories;
+    return categories
+    
   }
 
   render() {
