@@ -24,6 +24,10 @@ class App extends Component {
     this.setState({...this.state, searched: query})
   }
 
+  onKeyDownHandler = query => {
+    this.setState({...this.state, searched: query});
+  }
+
   render() {
     return (
       <Router>
@@ -31,11 +35,15 @@ class App extends Component {
           <Header 
             handleCategory={this.handlecategoryClick}
             handleChange={this.handleChange}
+            handleKeyDown={this.onKeyDownHandler}
           />
           <Switch>
-            <Route path='/:category' component={Category} />
+            <Route exact path='/category/:category' component={Category} />
       
-            <Route exact path='/' render={props => <Posts {...props} query={this.state.searched} />} />
+            {/* <Route exact path='/' render={props => <Posts {...props} query={this.state.searched} />} /> */}
+            <Route exact path='/' component={Posts} />
+
+            <Route path="/search/:q" component={Posts} />
           </Switch>
         </div>
       </Router>
