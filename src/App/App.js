@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Category from '../Category/Category'
-import Posts from '../Posts/Posts';
+import Posts from '../RecentPosts/RecentPosts';
 import SearchedPosts from '../SearchedPosts/SearchedPosts';
 import Header from '../Header/Header';
 
