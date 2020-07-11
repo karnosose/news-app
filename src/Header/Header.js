@@ -18,37 +18,26 @@ class Header extends Component {
   }
 
   async getCategories () {
-    // const categories = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=e82f70b988f04976bc0f0db2f241c521')
-    // .then(res => res.json())
-    // .then(res => {
-    //   let categories = [];
-    //   Object.keys(res.articles).forEach(article => {
-    //     const cat = res.article[source].name;
-    //     if(!categories.includes(cat)){
-    //       categories = [...categories, cat]
-    //     }
-    //   });
-    //   const newCategories = categories.splice(116,5)
-    //   return newCategories;
-    // })
-
-    const categories = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=e82f70b988f04976bc0f0db2f241c521')
+    const categories = await fetch('https://newsapi.org/v2/sources?apiKey=e82f70b988f04976bc0f0db2f241c521')
     .then(res => res.json())
     .then(res => {
       let categories = [];
-      res.articles.map(article => {
-        if(!categories.includes(article.source.name)){
-          categories = [...categories, article.source.name]
+      res.sources.map(source => {
+        if(!categories.includes(source.category)){
+          categories = [...categories, source.category]
         }
         return categories;
       })
-      const newCategories = categories.splice(0,5)
-      console.log(newCategories)
-      return newCategories;
+      // const newCategories = categories.splice(0,5)
+      return categories;
     })
    
     return categories
     
+  }
+
+  handleCategoryClick = (category) => {
+    this.props.handleCategory(category);
   }
 
   render() {
@@ -63,7 +52,9 @@ class Header extends Component {
         <div className={classes.categories}>
           {(this.state.categories).map(category => (
             <Link 
+              onClick={() => this.handleCategoryClick(category)}
               to={category}
+              value={category}
               key={uuid()} 
               className={classes.category} 
             >

@@ -11,11 +11,20 @@ import Header from '../Header/Header';
 import './App.style.js';
 
 class App extends Component {
+  state = {
+    currentCategory: '',
+  }
+  handlecategoryClick = (category) => {
+    this.setState({currentCategory: category})
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <Header 
+            handleCategory={this.handlecategoryClick}
+          />
           <Switch>
      
             <Route path='/:category' component={Category} />
