@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import React from 'react';
 
-class SearchComponent extends Component{
-  handleChange = e => {
-    this.props.handleChange( e.target.value);
+const SearchComponent = (props) => {
+
+  const handleChange = e => {
+    props.handleChange( e.target.value);
   }
-  
-  onKeyDownHandler =  e => {
+
+  const onKeyDownHandler =  e => {
     if (e.keyCode === 13) {
-      this.props.handleKeyDown(e.target.value);
-      window.location.href=`search/${e.target.value}`
+      console.log(window.location.origin)
+      props.handleKeyDown(e.target.value);
+      window.location.href=`${window.location.origin}/search/${e.target.value}`
     }
  
   }
-
-  render(){
-    return (
-      <div>
-        <input 
-          type="text" 
-          placeholder="Search.." 
-          name="search"
-          onChange={e => this.handleChange(e)}
-          onKeyDown={e => this.onKeyDownHandler(e)}
-        >
-        </input>
-      </div>
-    )
-  }
+  
+  return (
+    <div>
+      <input 
+        type="text" 
+        placeholder="Search.." 
+        name="search"
+        onChange={e => handleChange(e)}
+        onKeyDown={e => onKeyDownHandler(e)}
+      >
+      </input>
+    </div>
+  )
 }
 
 export default SearchComponent;
