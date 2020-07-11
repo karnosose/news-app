@@ -18,6 +18,7 @@ export const styles = {
 
     },
     image: {
+        width:350,
         '& img': {
             width:350
 

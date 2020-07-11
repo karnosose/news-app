@@ -30,7 +30,6 @@ class Header extends Component {
         }
         return categories;
       })
-      // const newCategories = categories.splice(0,5)
       return categories;
     })
    

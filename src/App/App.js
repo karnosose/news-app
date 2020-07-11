@@ -4,9 +4,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-
+import Category from '../Category/Category'
 import Posts from '../Posts/Posts';
-import Category from '../Category/Category';
+import SearchedPosts from '../SearchedPosts/SearchedPosts';
 import Header from '../Header/Header';
 
 import './App.style.js';
@@ -43,7 +43,7 @@ class App extends Component {
             {/* <Route exact path='/' render={props => <Posts {...props} query={this.state.searched} />} /> */}
             <Route exact path='/' component={Posts} />
 
-            <Route path="/search/:q" component={Posts} />
+            <Route exact path="/search/:q" component={SearchedPosts} />
           </Switch>
         </div>
       </Router>
