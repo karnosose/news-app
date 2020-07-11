@@ -39,15 +39,14 @@ class Header extends Component {
   }
 
   handleSearchInputChange = query => {
-    this.setState({...this.state, searched: query})
-      console.log(this.state.searched)
+    this.props.handleChange(query);
   }
 
   render() {
     const {classes} = this.props
     return (
       <div className={classes.header}>
-              {this.state.searched}
+              {/* {this.state.searched} */}
 
         <div className={classes.appTitle}>
           <Link to="/">
