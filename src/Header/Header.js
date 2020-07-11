@@ -1,14 +1,16 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 
 import {styles} from './Header.style';
 import { withStyles } from '@material-ui/styles';
+import SearchComponent from '../SearchComponent/SearchComponent';
 
 class Header extends Component {
   state = {
-    categories: []
+    categories: [],
+    searched: ''
   }
   async componentDidMount(){
     const categories = await this.getCategories();   
@@ -36,14 +38,17 @@ class Header extends Component {
     
   }
 
-  handleCategoryClick = (category) => {
-    this.props.handleCategory(category);
+  handleSearchInputChange = query => {
+    this.setState({...this.state, searched: query})
+      console.log(this.state.searched)
   }
 
   render() {
     const {classes} = this.props
     return (
       <div className={classes.header}>
+              {this.state.searched}
+
         <div className={classes.appTitle}>
           <Link to="/">
             <h2>News App</h2>
@@ -52,7 +57,6 @@ class Header extends Component {
         <div className={classes.categories}>
           {(this.state.categories).map(category => (
             <Link 
-              onClick={() => this.handleCategoryClick(category)}
               to={category}
               value={category}
               key={uuid()} 
@@ -62,12 +66,11 @@ class Header extends Component {
             </Link>
           ))}
         </div>
-        <div className={classes.search}>
-          <form>
-            <input className={classes.searchInput} type="text" placeholder="Search.." name="search"></input>
-            <input type="submit"></input>
-          </form>
-        </div>
+        
+        <SearchComponent 
+          handleChange={this.handleSearchInputChange}
+        />
+        
         <div className={classes.contactUs}>
           Contact us
         </div>
