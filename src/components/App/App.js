@@ -4,9 +4,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Category from '../Category/Category'
-import Posts from '../RecentPosts/RecentPosts';
-import SearchedPosts from '../SearchedPosts/SearchedPosts';
+import Category from '../Category'
+import Posts from '../RecentPosts';
+import SearchedPosts from '../SearchedPosts';
 import Header from '../Header/Header';
 
 import './App.style.js';
