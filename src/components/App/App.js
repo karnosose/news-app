@@ -46,7 +46,6 @@ class App extends Component {
             <Route exact path='/' component={Posts} />
 
             <Route exact path="/search/:q" component={SearchedPosts} />
-            <Route exact path="/article/:article" component={Article} />
 
           </Switch>
         </div>

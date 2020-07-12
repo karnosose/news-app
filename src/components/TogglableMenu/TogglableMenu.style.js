@@ -1,8 +1,11 @@
 export const styles = {
     contactUs: {
         color:'#25d7ff',
-    
-        textDecoration: 'none'
+        cursor: 'pointer',
+        textDecoration: 'none',
+        '@media (max-width: 1024px)': {
+          margin: '5px 0 10px'
+        },
       },
       toggleMenu: {
         display: 'flex',
@@ -10,22 +13,28 @@ export const styles = {
         justifyContent: 'space-around',
         width: '76%',
         '@media (max-width: 1024px)': {
-        //   display: 'none'
+            flexDirection: 'column',
+            marginLeft:40
         }
       },
-      menuIcon: {
-        color: 'white',
-        // display: 'none',
-        cursor: 'pointer',
-        '@media (max-width: 1024px)': {
-        //   display: 'unset',
-          marginRight:40
-        }
-      },
+
       categories: {
         display: 'flex',
         minWidth: 500,
-        margin:0
+        margin:0,
+        listStyleType: 'none',
+        
+        '@media (max-width: 1024px)': {
+            flexDirection: 'column',
+            padding:0,
+            '& li':{
+                margin:'5px 0',
+                '& a': {
+                    margin: 0
+                },
+            },
+        }
+
       },
       category: {
         margin: '0 20px',
@@ -33,15 +42,16 @@ export const styles = {
         textDecoration: 'none'
       },
       searchInput: {
-        width: '130px',
-        // -webkitTransition: 'width 0.4s ease-in-out',
         transition: 'width 0.4s ease-in-out',
         "& input":{
           border: 'none',
           height:28,
           outline:'none',
           paddingLeft: 10
-          
+        },
+        '@media (max-width: 1024px)': {
+            margin: '5px 0'
         }
+
       },
 }

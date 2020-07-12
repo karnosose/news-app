@@ -32,7 +32,7 @@ const {classes} = props;
             {item.description}
           </div>
           <div className={classes.readMore}>
-            <Link to={`/article/:${item.title}`}>read more</Link>
+            <button>read more</button>
           </div>
           </div>
         </div>

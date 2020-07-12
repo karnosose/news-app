@@ -69,28 +69,31 @@ class Header extends Component {
     const {classes} = this.props
     return (
       <div className={classes.header}>
-        {console.log(this.state.visible)}
-        <div className={classes.appTitle}>
-          <Link to="/">
-            <h2>News App</h2>
-          </Link>
-        </div>
-        {(this.state.windowWidth > 1024 || (this.state.windowWidth < 1024 && this.state.visible))  && (
-          <TogglableMenu 
-            categories={this.state.categories}
-            handleKeyDown={this.onKeyDownHandler}
-            handleChange={this.handleSearchInputChange}
-          />
-        )}
+        <div className={classes.togglable}>
+          {console.log(this.state.visible)}
+          <div className={classes.appTitle}>
+            <Link to="/">
+              <h2>News App</h2>
+            </Link>
+          </div>
+          {(this.state.windowWidth > 1024 || (this.state.windowWidth < 1024 && this.state.visible))  && (
+            <TogglableMenu 
+              categories={this.state.categories}
+              handleKeyDown={this.onKeyDownHandler}
+              handleChange={this.handleSearchInputChange}
+            />
+          )}
 
+          
+          
+        </div>
         {this.state.windowWidth < 1024 && (
           <div className={classes.menuIcon}>
-          <MenuIcon 
-             onClick={() => this.toggleMenuVisibility()}
-          />
+            <MenuIcon 
+              onClick={() => this.toggleMenuVisibility()}
+            />
          </div>
         )}
-        
       </div>
     )
   }
