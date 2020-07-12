@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'react-uuid'
-
+import {Link} from 'react-router-dom';
 import {styles} from './Post.style';
 import {withStyles} from '@material-ui/core';
 
@@ -32,7 +32,7 @@ const {classes} = props;
             {item.description}
           </div>
           <div className={classes.readMore}>
-            <button>read more</button>
+            <Link to={`/article/:${item.title}`}>read more</Link>
           </div>
           </div>
         </div>

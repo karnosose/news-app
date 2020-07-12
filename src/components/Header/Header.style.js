@@ -8,27 +8,27 @@ export const styles = {
       justifyContent: 'space-between',
     }
   },
-  categories: {
-    display: 'flex',
-    minWidth: 500
-  },
-  category: {
-    margin: '0 20px',
-    color:'white',
-    textDecoration: 'none'
-  },
-  searchInput: {
-    width: '130px',
-    // -webkitTransition: 'width 0.4s ease-in-out',
-    transition: 'width 0.4s ease-in-out',
-    "& input":{
-      border: 'none',
-      height:28,
-      outline:'none',
-      paddingLeft: 10
+  // categories: {
+  //   display: 'flex',
+  //   minWidth: 500
+  // },
+  // category: {
+  //   margin: '0 20px',
+  //   color:'white',
+  //   textDecoration: 'none'
+  // },
+  // searchInput: {
+  //   width: '130px',
+  //   // -webkitTransition: 'width 0.4s ease-in-out',
+  //   transition: 'width 0.4s ease-in-out',
+  //   "& input":{
+  //     border: 'none',
+  //     height:28,
+  //     outline:'none',
+  //     paddingLeft: 10
       
-    }
-  },
+  //   }
+  // },
   appTitle: {
     marginLeft: 60,
 

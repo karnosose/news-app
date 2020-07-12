@@ -18,8 +18,9 @@ class TogglableMenu extends Component{
     const {classes} = this.props
     return (
       <div className={classes.toggleMenu}>
-      <div className={classes.categories}>
+      <ul className={classes.categories}>
         {(this.props.categories).map(category => (
+          <li>
           <Link 
             to={`/category/${category}`}
             value={category}
@@ -28,8 +29,9 @@ class TogglableMenu extends Component{
           >
             {category}
           </Link>
+          </li>
         ))}
-      </div>
+      </ul>
       <div className={classes.searchInput}>
         <SearchInput 
           // handleChange={this.handleSearchInputChange}

@@ -4,6 +4,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+
+import Article from '../Article/Article';
 import Category from '../Category'
 import Posts from '../RecentPosts';
 import SearchedPosts from '../SearchedPosts';
@@ -44,6 +46,8 @@ class App extends Component {
             <Route exact path='/' component={Posts} />
 
             <Route exact path="/search/:q" component={SearchedPosts} />
+            <Route exact path="/article/:article" component={Article} />
+
           </Switch>
         </div>
       </Router>

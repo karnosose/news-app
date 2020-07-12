@@ -10,21 +10,22 @@ export const styles = {
         justifyContent: 'space-around',
         width: '76%',
         '@media (max-width: 1024px)': {
-          display: 'none'
+        //   display: 'none'
         }
       },
       menuIcon: {
         color: 'white',
-        display: 'none',
+        // display: 'none',
         cursor: 'pointer',
         '@media (max-width: 1024px)': {
-          display: 'unset',
+        //   display: 'unset',
           marginRight:40
         }
       },
       categories: {
         display: 'flex',
-        minWidth: 500
+        minWidth: 500,
+        margin:0
       },
       category: {
         margin: '0 20px',

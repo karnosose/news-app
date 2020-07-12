@@ -9,9 +9,7 @@ import { withStyles } from '@material-ui/styles';
 class Header extends Component {
   state = {
     categories: [],
-    toggleMenu: {
-      visible: false
-    },
+    visible: false,
     windowWidth: window.innerWidth,
   }
   async componentDidMount(){
@@ -21,6 +19,7 @@ class Header extends Component {
 
     const categories = await this.getCategories();   
     this.setState({
+      ...this.state,
       categories: categories,
     })
   }
@@ -29,10 +28,6 @@ class Header extends Component {
     window.addEventListener('resize', this.updateDimensions)
   }
 
-  componentWillUnmount() {
-    window.addEventListener('resize', this.updateDimensions)
-  }
-  
   updateDimensions = () => {
     this.setState({...this.state, windowWidth: window.innerWidth})
   }
@@ -62,26 +57,40 @@ class Header extends Component {
     this.props.handleKeyDown(query);
   }
 
+  toggleMenuVisibility = () => {
+    this.setState({
+      ...this.state,
+      visible: !this.state.visible
+    })
+  }
+
   render() {
 
     const {classes} = this.props
     return (
       <div className={classes.header}>
-        {    console.log(this.state.windowWidth)
-}
+        {console.log(this.state.visible)}
         <div className={classes.appTitle}>
           <Link to="/">
             <h2>News App</h2>
           </Link>
         </div>
-        <TogglableMenu 
-          categories={this.state.categories}
-          handleKeyDown={this.onKeyDownHandler}
-          handleChange={this.handleSearchInputChange}
-        />
-        <div className={classes.menuIcon}>
-          <MenuIcon />
-        </div>
+        {(this.state.windowWidth > 1024 || (this.state.windowWidth < 1024 && this.state.visible))  && (
+          <TogglableMenu 
+            categories={this.state.categories}
+            handleKeyDown={this.onKeyDownHandler}
+            handleChange={this.handleSearchInputChange}
+          />
+        )}
+
+        {this.state.windowWidth < 1024 && (
+          <div className={classes.menuIcon}>
+          <MenuIcon 
+             onClick={() => this.toggleMenuVisibility()}
+          />
+         </div>
+        )}
+        
       </div>
     )
   }
