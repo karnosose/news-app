@@ -5,7 +5,6 @@ export const styles = {
     background: '#172426',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height:70,
     '@media (max-width: 1024px)': {
       // alignItems: 'flex-start'
     }

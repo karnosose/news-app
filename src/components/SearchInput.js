@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchComponent = (props) => {
+const SearchComponent = () => {
 
   const onKeyDownHandler =  e => {
     if (e.keyCode === 13) {
@@ -9,13 +9,13 @@ const SearchComponent = (props) => {
   }
   
   return (
-      <input 
-        type="text" 
-        placeholder="Search.." 
-        name="search"
-        onKeyDown={e => onKeyDownHandler(e)}
-      >
-      </input>
+    <input 
+      type="text" 
+      placeholder="Search.." 
+      name="search"
+      onKeyDown={e => onKeyDownHandler(e)}
+    >
+    </input>
   )
 }
 

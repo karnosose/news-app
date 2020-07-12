@@ -1,5 +1,7 @@
 import React from 'react';
-import uuid from 'react-uuid'
+import uuid from 'react-uuid';
+import PropTypes from 'prop-types';
+
 import {styles} from './Post.style';
 import {withStyles} from '@material-ui/core';
 
@@ -50,6 +52,12 @@ const {classes} = props;
     </div> 
   )
     
+}
+
+Post.propTypes = {
+  classes: PropTypes.object.isRequired,
+  fetched: PropTypes.string.isRequired,
+  articles: PropTypes.array.isRequired
 }
 
 export default withStyles(styles)(Post)

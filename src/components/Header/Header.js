@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import MenuIcon from '@material-ui/icons/Menu';
 import TogglableMenu from '../TogglableMenu/TogglableMenu'
 
@@ -88,6 +90,11 @@ class Header extends Component {
       </div>
     )
   }
+}
+
+Header.propTypes = {
+  handleKeyDown: PropTypes.func.isRequired,
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(Header);

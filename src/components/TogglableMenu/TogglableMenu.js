@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 import {Link} from 'react-router-dom';
+
 import SearchInput from '../SearchInput';
 import ContactModal from '../Modal/ContactModal';
 import Contact from '../Contact/Contact';
+
 import {styles} from './TogglableMenu.style';
 import {withStyles} from '@material-ui/core';
 
@@ -63,6 +66,12 @@ class TogglableMenu extends Component{
     )
   }
 
+}
+
+TogglableMenu.propTypes = {
+  classes: PropTypes.object.isRequired,
+  handleKeyDown: PropTypes.func.isRequired,
+  categories: PropTypes.array.isRequired
 }
 
 export default withStyles(styles)(TogglableMenu);

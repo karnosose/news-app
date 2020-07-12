@@ -10,6 +10,7 @@ export const styles = {
     background: 'none',
     color:'#25d7ff',
     cursor: 'pointer',
+    padding:'10px 0'
   },
   toggleMenu: {
     display: 'flex',
@@ -26,7 +27,9 @@ export const styles = {
     },
     '@media (max-width: 1024px)': {
       flexDirection: 'column',
-      marginLeft:40
+      alignItems:'flex-start',
+      marginLeft:40,
+      width: 'unset'
     }
   },
 

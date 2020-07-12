@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {styles} from './Contact.style';
 import {withStyles} from '@material-ui/core';
@@ -140,5 +141,10 @@ return formIsValid;
     )
   }
 }
+
+Contact.propTypes = {
+  classes: PropTypes.object.isRequired,
+  handleClose: PropTypes.func.isRequired
+};
 
 export default withStyles(styles)(Contact)

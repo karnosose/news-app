@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Contact from '../Contact/Contact';
+
 import {styles} from './ContactModal.style';
 import {withStyles} from '@material-ui/core';
 
-const ContactModal = ({ handleClose, show, children, classes }) => {
+const ContactModal = ({ handleClose, show, classes }) => {
   
     return (
       <div className={show ? classes.showModal : classes.hideModal}>
@@ -21,6 +23,13 @@ const ContactModal = ({ handleClose, show, children, classes }) => {
         </section>
       </div>
     );
+  };
+
+  ContactModal.propTypes = {
+    classes: PropTypes.object.isRequired,
+    handleClose: PropTypes.func.isRequired,
+    show: PropTypes.func.isRequired
+
   };
 
 export default withStyles(styles)(ContactModal);
