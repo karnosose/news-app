@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import uuid from 'react-uuid';
+
+import TogglableMenu from '../TogglableMenu/TogglableMenu'
 
 import {styles} from './Header.style';
 import { withStyles } from '@material-ui/styles';
-import SearchInput from '../SearchInput';
-import TogglableMenu from '../TogglableMenu/TogglableMenu'
-import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends Component {
   state = {
@@ -40,9 +38,9 @@ class Header extends Component {
     
   }
 
-  handleSearchInputChange = query => {
-    this.props.handleChange(query);
-  }
+  // handleSearchInputChange = query => {
+  //   this.props.handleChange(query);
+  // }
   onKeyDownHandler = query => {
     this.props.handleKeyDown(query);
   }
@@ -62,36 +60,6 @@ class Header extends Component {
           handleKeyDown={this.onKeyDownHandler}
           handleChange={this.handleSearchInputChange}
         />
-        {/* <div className={classes.toggleMenu}>
-          <div className={classes.categories}>
-            {(this.state.categories).map(category => (
-              <Link 
-                to={`/category/${category}`}
-                value={category}
-                key={uuid()} 
-                className={classes.category} 
-              >
-                {category}
-              </Link>
-            ))}
-          </div>
-          <div className={classes.searchInput}>
-            <SearchInput 
-              handleChange={this.handleSearchInputChange}
-              handleKeyDown={this.onKeyDownHandler}
-            />
-          </div>
-          
-          
-          <div className={classes.contactUs}>
-            Contact us
-          </div>
-        </div>
-        <div className={classes.menuIcon}>
-            <MenuIcon
-              onClick={() => console.log(10)}
-            />
-          </div> */}
       </div>
     )
   }

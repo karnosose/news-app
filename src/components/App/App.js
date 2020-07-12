@@ -20,12 +20,12 @@ class App extends Component {
     this.setState({currentCategory: category})
   }
 
-  handleChange = query => {
-    this.setState({...this.state, searched: query})
-  }
+  // handleChange = query => {
+  //   this.setState({...this.state, searched: query})
+  // }
 
   onKeyDownHandler = query => {
-    this.setState({...this.state, searched: query});
+    // this.setState({...this.state, searched: query});
   }
 
   render() {

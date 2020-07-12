@@ -7,9 +7,9 @@ import {withStyles} from '@material-ui/core';
 
 class TogglableMenu extends Component{
 
-  handleSearchInputChange = query => {
-    this.props.handleChange(query);
-  }
+  // handleSearchInputChange = query => {
+  //   this.props.handleChange(query);
+  // }
   onKeyDownHandler = query => {
     this.props.handleKeyDown(query);
   }
@@ -32,7 +32,7 @@ class TogglableMenu extends Component{
       </div>
       <div className={classes.searchInput}>
         <SearchInput 
-          handleChange={this.handleSearchInputChange}
+          // handleChange={this.handleSearchInputChange}
           handleKeyDown={this.onKeyDownHandler}
         />
       </div>

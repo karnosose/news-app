@@ -2,9 +2,9 @@ import React from 'react';
 
 const SearchComponent = (props) => {
 
-  const handleChange = e => {
-    props.handleChange( e.target.value);
-  }
+  // const handleChange = e => {
+  //   props.handleChange( e.target.value);
+  // }
 
   const onKeyDownHandler =  e => {
     if (e.keyCode === 13) {
@@ -19,7 +19,7 @@ const SearchComponent = (props) => {
         type="text" 
         placeholder="Search.." 
         name="search"
-        onChange={e => handleChange(e)}
+        // onChange={e => handleChange(e)}
         onKeyDown={e => onKeyDownHandler(e)}
       >
       </input>
