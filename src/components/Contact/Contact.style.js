@@ -2,8 +2,8 @@ export const styles = {
   contactForm: {
     display: 'flex',
     flexDirection:'column',
-    margin:10,
-    width: '90%'
+    width: '90%',
+    margin:'10px auto'
   },
   name: {
     '& input': {
@@ -11,8 +11,7 @@ export const styles = {
       outline:'none',
       borderRadius:10,
       padding:10,
-      margin:5,
-      width: '90%'
+      width: '100%'
     } 
   },
   email: {
@@ -21,8 +20,7 @@ export const styles = {
       outline:'none',
       borderRadius:10,
       padding:10,
-      margin:5,
-      width: '90%'
+      width: '100%'
     }
   },
   message: {
@@ -31,8 +29,7 @@ export const styles = {
       outline:'none',
       borderRadius:10,
       padding:10,
-      margin:5,
-      width: '90%'
+      width: '100%'
     }
   },
   modalButtons: {
@@ -52,6 +49,9 @@ export const styles = {
   send:{
     width:110,
     border: 'none'
-
+  },
+  errors: {
+    color: 'red',
+    padding:10
   }
 }
