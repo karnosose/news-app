@@ -22,7 +22,7 @@ const {classes} = props;
           </div>
           <div className={classes.authorAndDate}>
             <div className={classes.author}>
-              <span>by <i>{item.author}</i></span>
+              <span> <i>{item.author} </i></span>
             </div>
             <div className={classes.date}>
               <span> on <b>{date}</b></span> 

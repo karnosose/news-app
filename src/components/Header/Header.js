@@ -5,7 +5,7 @@ import uuid from 'react-uuid';
 
 import {styles} from './Header.style';
 import { withStyles } from '@material-ui/styles';
-import SearchInput from '../SearchInput/SearchInput';
+import SearchInput from '../SearchInput';
 
 class Header extends Component {
   state = {
@@ -41,7 +41,6 @@ class Header extends Component {
     this.props.handleChange(query);
   }
   onKeyDownHandler = query => {
-
     this.props.handleKeyDown(query);
   }
 
@@ -49,8 +48,6 @@ class Header extends Component {
     const {classes} = this.props
     return (
       <div className={classes.header}>
-              {/* {this.state.searched} */}
-
         <div className={classes.appTitle}>
           <Link to="/">
             <h2>News App</h2>
@@ -68,11 +65,13 @@ class Header extends Component {
             </Link>
           ))}
         </div>
+        <div className={classes.searchInput}>
+          <SearchInput 
+            handleChange={this.handleSearchInputChange}
+            handleKeyDown={this.onKeyDownHandler}
+          />
+        </div>
         
-        <SearchInput 
-          handleChange={this.handleSearchInputChange}
-          handleKeyDown={this.onKeyDownHandler}
-        />
         
         <div className={classes.contactUs}>
           Contact us

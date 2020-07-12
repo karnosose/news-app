@@ -8,7 +8,6 @@ const SearchComponent = (props) => {
 
   const onKeyDownHandler =  e => {
     if (e.keyCode === 13) {
-      console.log(window.location.origin)
       props.handleKeyDown(e.target.value);
       window.location.href=`${window.location.origin}/search/${e.target.value}`
     }
@@ -16,7 +15,6 @@ const SearchComponent = (props) => {
   }
   
   return (
-    <div>
       <input 
         type="text" 
         placeholder="Search.." 
@@ -25,7 +23,6 @@ const SearchComponent = (props) => {
         onKeyDown={e => onKeyDownHandler(e)}
       >
       </input>
-    </div>
   )
 }
 
