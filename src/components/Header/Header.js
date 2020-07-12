@@ -62,7 +62,6 @@ class Header extends Component {
   }
 
   render() {
-
     const {classes} = this.props
     return (
       <div className={classes.header}>
@@ -78,9 +77,6 @@ class Header extends Component {
               handleKeyDown={this.onKeyDownHandler}
             />
           )}
-
-          
-          
         </div>
         {this.state.windowWidth < 1024 && (
           <div className={classes.menuIcon}>

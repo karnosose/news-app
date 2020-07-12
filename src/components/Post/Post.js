@@ -1,6 +1,5 @@
 import React from 'react';
 import uuid from 'react-uuid'
-import {Link} from 'react-router-dom';
 import {styles} from './Post.style';
 import {withStyles} from '@material-ui/core';
 
@@ -21,11 +20,13 @@ const {classes} = props;
             <h3>{item.title}</h3>
           </div>
           <div className={classes.authorAndDate}>
-            <div className={classes.author}>
-              <span> <i>{item.author} </i></span>
+            {item.author && (
+              <div className={classes.author}>
+              <i>{item.author} </i>
             </div>
+            )}
             <div className={classes.date}>
-              <span> on <b>{date}</b></span> 
+              <small>{date}</small>
             </div>
           </div>
           <div className={classes.excerpt}>

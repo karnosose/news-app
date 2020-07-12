@@ -2,13 +2,26 @@ import React, { Component } from 'react'
 import uuid from 'react-uuid';
 import {Link} from 'react-router-dom';
 import SearchInput from '../SearchInput';
+import ContactModal from '../App/Modal/ContactModal'
 import {styles} from './TogglableMenu.style';
 import {withStyles} from '@material-ui/core';
 
 class TogglableMenu extends Component{
+  state = {
+    showModal:false,
+  }
   onKeyDownHandler = query => {
     this.props.handleKeyDown(query);
   }
+
+  showModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  hideModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render(){
     const {classes} = this.props
     return (
@@ -33,7 +46,14 @@ class TogglableMenu extends Component{
         />
       </div>
       <div className={classes.contactUs}>
-        Contact us
+        <ContactModal show={this.state.showModal} handleClose={this.hideModal}>
+          <p>Modal</p>
+          <p>Data</p>
+        </ContactModal>
+        
+        <button type="button" onClick={() =>this.showModal()}>
+          Contact us
+        </button>
       </div>
     </div>
     )

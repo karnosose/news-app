@@ -5,7 +5,6 @@ import {
   Route,
 } from "react-router-dom";
 
-import Article from '../Article/Article';
 import Category from '../Category'
 import Posts from '../RecentPosts';
 import SearchedPosts from '../SearchedPosts';
@@ -25,7 +24,6 @@ class App extends Component {
         <div className="App">
           <Header 
             handleChange={this.handleChange}
-            // handleKeyDown={this.onKeyDownHandler}
           />
           <Switch>
             <Route exact path='/category/:category' component={Category} />
