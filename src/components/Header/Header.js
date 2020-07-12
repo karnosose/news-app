@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import MenuIcon from '@material-ui/icons/Menu';
 import TogglableMenu from '../TogglableMenu/TogglableMenu'
 
 import {styles} from './Header.style';
@@ -11,13 +11,30 @@ class Header extends Component {
     categories: [],
     toggleMenu: {
       visible: false
-    }
+    },
+    windowWidth: window.innerWidth,
   }
   async componentDidMount(){
+    this.updateDimensions();
+
+    window.addEventListener('resize', this.updateDimensions)
+
     const categories = await this.getCategories();   
     this.setState({
       categories: categories,
     })
+  }
+
+  componentDidUpdate(){
+    window.addEventListener('resize', this.updateDimensions)
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('resize', this.updateDimensions)
+  }
+  
+  updateDimensions = () => {
+    this.setState({...this.state, windowWidth: window.innerWidth})
   }
 
   async getCategories () {
@@ -46,20 +63,25 @@ class Header extends Component {
   }
 
   render() {
+
     const {classes} = this.props
     return (
       <div className={classes.header}>
+        {    console.log(this.state.windowWidth)
+}
         <div className={classes.appTitle}>
           <Link to="/">
             <h2>News App</h2>
           </Link>
         </div>
-
         <TogglableMenu 
           categories={this.state.categories}
           handleKeyDown={this.onKeyDownHandler}
           handleChange={this.handleSearchInputChange}
         />
+        <div className={classes.menuIcon}>
+          <MenuIcon />
+        </div>
       </div>
     )
   }

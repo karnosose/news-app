@@ -2,7 +2,7 @@ export const styles = {
   header: {
     background: '#172426',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     '@media (max-width: 1024px)': {
       justifyContent: 'space-between',
@@ -30,6 +30,8 @@ export const styles = {
     }
   },
   appTitle: {
+    marginLeft: 60,
+
     '@media (max-width: 1024px)': {
       marginLeft: 40
     },
@@ -49,7 +51,8 @@ export const styles = {
   toggleMenu: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    alignItems:'center',
     width: '76%',
     '@media (max-width: 1024px)': {
       display: 'none'
