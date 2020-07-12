@@ -1,16 +1,21 @@
 export const styles = {
   contactUs: {
-    color:'#25d7ff',
-    cursor: 'pointer',
     textDecoration: 'none',
-    '@media (max-width: 1024px)': {
+    '@media (max-,width: 1024px)': {
       margin: '5px 0 10px'
     },
+  },
+  contactButton: {
+    border:'none',
+    background: 'none',
+    color:'#25d7ff',
+    cursor: 'pointer',
   },
   toggleMenu: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems:'center',
     width: '76%',
     '& li':{
       '& a': {

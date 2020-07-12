@@ -21,11 +21,25 @@ export const styles = {
       mainModal: {
         position:'fixed',
         background: 'white',
-        width: '80%',
         height: 'auto',
         top:'50%',
         left:'50%',
-        transform: 'translate(-50%,-50%)'
+        width:500,
+        transform: 'translate(-50%,-50%)',
+        border: '1px solid rgba(0,0,0,.2)',
+        borderRadius:10
+      },
+      modalContent: {
+        width: '100%',
+        pointerEvents: 'auto',
+        background: '#fff',
+        backgroundClip: 'padding-box',
+        borderRadius: '.3rem',
+        outline: 0,
+      },
+      modalHeader: {
+        padding:10
       }
     
+
 }

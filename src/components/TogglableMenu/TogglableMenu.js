@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import uuid from 'react-uuid';
 import {Link} from 'react-router-dom';
 import SearchInput from '../SearchInput';
-import ContactModal from '../App/Modal/ContactModal'
+import ContactModal from '../Modal/ContactModal';
+import Contact from '../Contact/Contact';
 import {styles} from './TogglableMenu.style';
 import {withStyles} from '@material-ui/core';
 
@@ -47,11 +48,14 @@ class TogglableMenu extends Component{
       </div>
       <div className={classes.contactUs}>
         <ContactModal show={this.state.showModal} handleClose={this.hideModal}>
-          <p>Modal</p>
-          <p>Data</p>
+          <Contact />
         </ContactModal>
         
-        <button type="button" onClick={() =>this.showModal()}>
+        <button 
+          type="button"
+          onClick={() =>this.showModal()}
+          className={classes.contactButton}
+        >
           Contact us
         </button>
       </div>
