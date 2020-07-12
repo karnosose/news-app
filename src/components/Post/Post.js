@@ -32,7 +32,12 @@ const {classes} = props;
             {item.description}
           </div>
           <div className={classes.readMore}>
-            <button>read more</button>
+            <a 
+              href={item.url}
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              read more</a>
           </div>
           </div>
         </div>

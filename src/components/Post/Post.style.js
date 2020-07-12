@@ -36,8 +36,15 @@ export const styles = {
     },
     readMore:{
         display:'flex',
-        // justifyContent: 'flex-end',
-        marginTop:15
+        marginTop:15,
+        '& a': {
+            color: '#25d7ff',
+            textDecoration: 'none',
+            '&:hover': {
+                color: '#0cb3d9',
+            }
+        }
+    
     }
 }
 

@@ -35,7 +35,6 @@ export const styles = {
     },
     readMore:{
         display:'flex',
-        // justifyContent: 'flex-end',
         marginTop:15
     }
 }
