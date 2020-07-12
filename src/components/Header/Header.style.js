@@ -3,11 +3,14 @@ export const styles = {
     background: '#172426',
     display: 'flex',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    '@media (max-width: 1024px)': {
+      justifyContent: 'space-between',
+    }
   },
   categories: {
     display: 'flex',
-    minWidth: 711
+    minWidth: 500
   },
   category: {
     margin: '0 20px',
@@ -25,9 +28,11 @@ export const styles = {
       paddingLeft: 10
       
     }
-    
   },
   appTitle: {
+    '@media (max-width: 1024px)': {
+      marginLeft: 40
+    },
     '& a': {
     textDecoration: 'none',
 
@@ -40,6 +45,24 @@ export const styles = {
     color:'#25d7ff',
 
     textDecoration: 'none'
+  },
+  toggleMenu: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '76%',
+    '@media (max-width: 1024px)': {
+      display: 'none'
+    }
+  },
+  menuIcon: {
+    color: 'white',
+    display: 'none',
+    cursor: 'pointer',
+    '@media (max-width: 1024px)': {
+      display: 'unset',
+      marginRight:40
+    }
   }
 
 }

@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 
-
 import {styles} from './Header.style';
 import { withStyles } from '@material-ui/styles';
 import SearchInput from '../SearchInput';
+import TogglableMenu from '../TogglableMenu/TogglableMenu'
+import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends Component {
   state = {
     categories: [],
-    searched: ''
+    toggleMenu: {
+      visible: false
+    }
   }
   async componentDidMount(){
     const categories = await this.getCategories();   
@@ -32,8 +35,8 @@ class Header extends Component {
       })
       return categories;
     })
-   
-    return categories
+    const newCategories = categories.splice(2, 5)
+    return newCategories
     
   }
 
@@ -53,29 +56,42 @@ class Header extends Component {
             <h2>News App</h2>
           </Link>
         </div>
-        <div className={classes.categories}>
-          {(this.state.categories).map(category => (
-            <Link 
-              to={`/category/${category}`}
-              value={category}
-              key={uuid()} 
-              className={classes.category} 
-            >
-              {category}
-            </Link>
-          ))}
+
+        <TogglableMenu 
+          categories={this.state.categories}
+          handleKeyDown={this.onKeyDownHandler}
+          handleChange={this.handleSearchInputChange}
+        />
+        {/* <div className={classes.toggleMenu}>
+          <div className={classes.categories}>
+            {(this.state.categories).map(category => (
+              <Link 
+                to={`/category/${category}`}
+                value={category}
+                key={uuid()} 
+                className={classes.category} 
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
+          <div className={classes.searchInput}>
+            <SearchInput 
+              handleChange={this.handleSearchInputChange}
+              handleKeyDown={this.onKeyDownHandler}
+            />
+          </div>
+          
+          
+          <div className={classes.contactUs}>
+            Contact us
+          </div>
         </div>
-        <div className={classes.searchInput}>
-          <SearchInput 
-            handleChange={this.handleSearchInputChange}
-            handleKeyDown={this.onKeyDownHandler}
-          />
-        </div>
-        
-        
-        <div className={classes.contactUs}>
-          Contact us
-        </div>
+        <div className={classes.menuIcon}>
+            <MenuIcon
+              onClick={() => console.log(10)}
+            />
+          </div> */}
       </div>
     )
   }
