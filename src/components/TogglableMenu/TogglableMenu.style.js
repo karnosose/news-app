@@ -12,6 +12,13 @@ export const styles = {
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '76%',
+        '& li':{
+            '& a': {
+                '&:hover': {
+                    color:'#25d7ff',
+                },
+            }
+        },
         '@media (max-width: 1024px)': {
             flexDirection: 'column',
             marginLeft:40
@@ -30,7 +37,8 @@ export const styles = {
             '& li':{
                 margin:'5px 0',
                 '& a': {
-                    margin: 0
+                    margin: 0,
+                    
                 },
             },
         }

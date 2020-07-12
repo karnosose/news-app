@@ -14,18 +14,7 @@ import Header from '../Header/Header';
 import './App.style.js';
 
 class App extends Component {
-  state = {
-    currentCategory: '',
-    searched: ''
-  }
-  handlecategoryClick = (category) => {
-    this.setState({currentCategory: category})
-  }
-
-  // handleChange = query => {
-  //   this.setState({...this.state, searched: query})
-  // }
-
+  
   onKeyDownHandler = query => {
     // this.setState({...this.state, searched: query});
   }
@@ -35,9 +24,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header 
-            handleCategory={this.handlecategoryClick}
             handleChange={this.handleChange}
-            handleKeyDown={this.onKeyDownHandler}
+            // handleKeyDown={this.onKeyDownHandler}
           />
           <Switch>
             <Route exact path='/category/:category' component={Category} />

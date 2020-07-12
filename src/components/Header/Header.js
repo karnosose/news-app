@@ -50,9 +50,6 @@ class Header extends Component {
     
   }
 
-  // handleSearchInputChange = query => {
-  //   this.props.handleChange(query);
-  // }
   onKeyDownHandler = query => {
     this.props.handleKeyDown(query);
   }
@@ -70,7 +67,6 @@ class Header extends Component {
     return (
       <div className={classes.header}>
         <div className={classes.togglable}>
-          {console.log(this.state.visible)}
           <div className={classes.appTitle}>
             <Link to="/">
               <h2>News App</h2>
@@ -80,7 +76,6 @@ class Header extends Component {
             <TogglableMenu 
               categories={this.state.categories}
               handleKeyDown={this.onKeyDownHandler}
-              handleChange={this.handleSearchInputChange}
             />
           )}
 

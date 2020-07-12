@@ -4,7 +4,13 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        margin: '80px auto'
+        margin: '80px auto',
+        '@media (max-width: 1024px)': {
+            width:'90%'
+        },
+        '@media (max-width: 600px)': {
+            width: '95%',
+        },
     },
     article: {
         border: '1px solid #e1e0e0',
@@ -14,13 +20,17 @@ export const styles = {
         padding: 20,
         margin: '20px 0',
         alignItems: 'center',
+        '@media (max-width: 600px)': {
+            flexDirection:'column',
+            padding: '20px 0',
 
+        },
 
     },
     image: {
-        width:350,
+        width:'97%',
         '& img': {
-            width:350
+            width:'100%'
 
         }
     },

@@ -6,21 +6,16 @@ import {styles} from './TogglableMenu.style';
 import {withStyles} from '@material-ui/core';
 
 class TogglableMenu extends Component{
-
-  // handleSearchInputChange = query => {
-  //   this.props.handleChange(query);
-  // }
   onKeyDownHandler = query => {
     this.props.handleKeyDown(query);
   }
-
   render(){
     const {classes} = this.props
     return (
       <div className={classes.toggleMenu}>
       <ul className={classes.categories}>
         {(this.props.categories).map(category => (
-          <li>
+          <li key={uuid()}>
           <Link 
             to={`/category/${category}`}
             value={category}
@@ -34,12 +29,9 @@ class TogglableMenu extends Component{
       </ul>
       <div className={classes.searchInput}>
         <SearchInput 
-          // handleChange={this.handleSearchInputChange}
           handleKeyDown={this.onKeyDownHandler}
         />
       </div>
-      
-      
       <div className={classes.contactUs}>
         Contact us
       </div>
